@@ -52,7 +52,9 @@ please refer to https://github.com/hliihbcas/FishSNP
 ## Analysis and visualization code
 ### Dependent R packages
 1.Before the process begins, you need to make sure that the following dependent software in your Linux environment is installed successfully and can be used properly.    
-
+please refer FishCODE.yaml.  
+2.If conda works under your Linux environment, you canimport the corresponding environment.  
+$ create -f FishCODE.yaml via conda env create -f  
 
 ### Quality control
 $ bash filter_fastx.sh 555065 SRR9697472  
