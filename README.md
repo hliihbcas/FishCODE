@@ -1,21 +1,25 @@
 # FishCODE
 FishCODE: a web-based information platform for comprehensive omics data exploration in fish research.  
-The script should be run in the Linux environment, and make sure that the conda in the environment can be used normally.  
+The script should be run in the Linux environment.  
 
-## Import the conda environment
-1.Before the process begins, you need to import the conda environment and run the following example in the active conda environment  
-$ cd FishSNP-main  
-$ conda env create -f FishSNP_01.yaml  
-$ source activate FishSNP_01  
+## Epigenomics upstream script  
+### Linux environment  
+1.Before the process begins, you need to make sure that the following dependent software in your Linux environment is installed successfully and can be used properly.    
+FASTX Toolkit 0.0.13, BSMAP 2.9, samtools 1.3.1, Python 2.7.15 [sys, time, os, array, optparse]  
 
-## SNP calling pipeline
-The process includes downloading, quality control, SNP calling, etc.  
+### quality control
+$ bash filter_fastx.sh 555065 SRR9697472  
+Note: The first parameter of the quality control script is the project name, and the second parameter is the prefix name of fastq.gz. But before you run the script, you need to replace "@SRR" on line 20 of "filter_fastx.sh" with the special flag string of your sequencing data. What are special identifiers? Take NCBI's original sequencing file as an example. The special string of SRRXXXX.fastq.gz is "@SRR". You can zless open the fastq.gz file to view the first line and replace the "NCBI's" in line 20 of filter_fastx.sh. @SRR".  
 
-**Before you start the snakemake process, here are a few things you need to do**  
-1.Install GATK 4.0 in advance.  
-2.Install libcrypto.so.1.0.0, libbz2.so.1.0 in {Your lib path}/FishSNP_01/lib/  
-3.Change the "GATK_PATH" variable in the script (./SNP_calling_pipeline/SNP_calling_pipeline_snakemake.py) to the absolute path of the GATK in your environment.  
-4.Download the corresponding genome index file (tilapia) from the SNP_calling_source.tar.gz at (http://bioinfo.ihb.ac.cn/software/FishSNP), and extract it in the ./SNP_calling_pipeline/species/tilapia/.  
+### count
+$ bash methy.sh 555065 SRR9697472 ./zebrafish/GCF_000002035.6_GRCz11_genomic.fna  
+Note: The first parameter of the quality control script is the project name, the second is the prefix name of fastq.gz, and the third parameter is the absolute path of the genome of the corresponding species.  
+
+**Before you start the process, here are a few things you need to know**  
+1. The output result of the third step will be in 02methyPos/01methratio/555065 under the same directory.  
+2. All directory structures and demonstration data examples are included in the compressed package, allowing users to try it easily.  
+3. *methratio.txt is the final output result, where *methratio is the methylation status of all sites, and the final result is the filtered site file with coverage.  
+4. Considering that methylation computing resources consume a lot, we recommend that your running server has at least 100G of RAM, 200G of storage space, and 10 CPU cores. (actually depends on your genome size).  
 
 **Getting started (Linux)**  
 $ cd ./SNP_calling_pipeline  
