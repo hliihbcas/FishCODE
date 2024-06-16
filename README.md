@@ -7,11 +7,11 @@ The script should be run in the Linux environment.
 1.Before the process begins, you need to make sure that the following dependent software in your Linux environment is installed successfully and can be used properly.    
 FASTX Toolkit 0.0.13, BSMAP 2.9, samtools 1.3.1, Python 2.7.15 [sys, time, os, array, optparse]  
 
-### quality control
+### Quality control
 $ bash filter_fastx.sh 555065 SRR9697472  
 Note: The first parameter of the quality control script is the project name, and the second parameter is the prefix name of fastq.gz. But before you run the script, you need to replace "@SRR" on line 20 of "filter_fastx.sh" with the special flag string of your sequencing data. What are special identifiers? Take NCBI's original sequencing file as an example. The special string of SRRXXXX.fastq.gz is "@SRR". You can zless open the fastq.gz file to view the first line and replace the "NCBI's" in line 20 of filter_fastx.sh. @SRR".  
 
-### count
+### Count
 $ bash methy.sh 555065 SRR9697472 ./zebrafish/GCF_000002035.6_GRCz11_genomic.fna  
 Note: The first parameter of the quality control script is the project name, the second is the prefix name of fastq.gz, and the third parameter is the absolute path of the genome of the corresponding species.  
 
