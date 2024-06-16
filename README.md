@@ -1,5 +1,5 @@
 # FishCODE
-FishCODE: a web-based information platform for comprehensive omics data exploration in fish research
+FishCODE: a web-based information platform for comprehensive omics data exploration in fish research.  
 The script should be run in the Linux environment, and make sure that the conda in the environment can be used normally.  
 
 ## Import the conda environment
