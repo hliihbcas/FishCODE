@@ -56,13 +56,18 @@ please refer FishCODE.yaml.
 2.If conda works under your Linux environment, you canimport the corresponding environment.  
 $ create -f FishCODE.yaml via conda env create -f  
 
-### Quality control
-$ bash filter_fastx.sh 555065 SRR9697472  
-Note: The first parameter of the quality control script is the project name, and the second parameter is the prefix name of fastq.gz. But before you run the script, you need to replace "@SRR" on line 20 of "filter_fastx.sh" with the special flag string of your sequencing data. What are special identifiers? Take NCBI's original sequencing file as an example. The special string of SRRXXXX.fastq.gz is "@SRR". You can zless open the fastq.gz file to view the first line and replace the "NCBI's" in line 20 of filter_fastx.sh. @SRR".  
+### Transcriptome analysis
+$ Rversion1.R de_analyse_batch 11 ./data/example_trans/*.data 0 ./data/example_trans/feature > ./data/example_trans/err.txt 2>&1  
 
-### Count
-$ bash methy.sh 555065 SRR9697472 ./zebrafish/GCF_000002035.6_GRCz11_genomic.fna  
-Note: The first parameter of the quality control script is the project name, the second is the prefix name of fastq.gz, and the third parameter is the absolute path of the genome of the corresponding species.  
+### Time-series transcriptome analysis
+$ Rversion1.R de_analyse_batch_time 11 ./data/example_time/*.data 0 ./data/example_time/feature > ./data/example_time/err.txt 2>&1  
+
+### Evolutionary tree construction  
+$ evolution_tree.R ./data/example_evo/common_aln.phy
+
+### Evolutionary tree construction  
+$ methylkit.R SRR17851372,SRR17851373 3 1000 1000 0.01 25 all /home/xxia/public_html/django/fishcode/static/magicRversion1/data/1lzSZbymMvLxegsfWFqV8HoaCUp0_meth/result_1.txt $COMPARE $BASEMINCOV $PROJECT $BATCHMETH $PCAPER $PVALEBATCH $BATCHIDS
+/home/xxia/public_html/django/static/GBTP/magicRversion1_fishcode/new_meth.sh SRR17851372,SRR17851373 SRR17851372,SRR17851373 3 1000 1000 0.01 25 all 1,0 /home/xxia/public_html/django/fishcode/static/magicRversion1/data/1lzSZbymMvLxegsfWFqV8HoaCUp0_meth 0 /home/xxia/public_html/django/static/GBTP/magicRversion1_fishcode/transc_loc/Cyprinus_carpio.txt 2000 10 no 0.2 0.01 1448589247@qq.com PRJNA802599,PRJNA802599 > /home/xxia/public_html/django/fishcode/static/magicRversion1/data/1lzSZbymMvLxegsfWFqV8HoaCUp0_meth/running_log.txt 2>&1 &
 
 **Before you start the process, here are a few things you need to know**  
 1. The output result of the third step will be in 02methyPos/01methratio/555065 under the same directory.  
