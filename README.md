@@ -47,3 +47,4 @@ Note: The first parameter is the project name of the second step, the second par
 3. In order to facilitate users to generate transcriptome data corresponding to the species included in FishCODE, we provide a download package of the genome and annotation files of FishCODE's 35 fish species in the "Help->Usage->gene information" section (http://bioinfo.ihb.ac.cn/fishcode/help).  
 
 ## Genome script  
+please refer to https://github.com/hliihbcas/FishSNP
