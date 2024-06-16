@@ -45,3 +45,5 @@ Note: The first parameter is the project name of the second step, the second par
 1. The output result of the third step will be in 01_result/792045/SRR17641338_quant/ under the same directory.  
 2. All directory structures and demonstration data examples are included in the compressed package, allowing users to try it easily.  
 3. In order to facilitate users to generate transcriptome data corresponding to the species included in FishCODE, we provide a download package of the genome and annotation files of FishCODE's 35 fish species in the "Help->Usage->gene information" section (http://bioinfo.ihb.ac.cn/fishcode/help).  
+
+## Genome script  
