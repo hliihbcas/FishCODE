@@ -66,7 +66,7 @@ $ Rversion1.R de_analyse_batch_time 11 ./data/example_time/*.data 0 ./data/examp
 $ evolution_tree.R ./data/example_evo/common_aln.phy
 
 ### SNP annotation  
-$ ./run_snp2.py -sh ./snpEff_pip1_1.sh -f ./data/example_snp/common.data -i new_grasscarp -c   --address 1448589247@qq.com -w ./data/example_snp -o ./data/example_snp/out  
+$ ./run_snp2.py -sh ./snpEff_pip1_1.sh -f ./data/example_snp/common.data -i new_grasscarp -c   --address xxxxxxxxx@xxx.com -w ./data/example_snp -o ./data/example_snp/out  
 Note: Considering that SNP annotations need to be built in advance, and that SNP annotations mainly rely on SNPEff software （https://pcingola.github.io/SnpEff/index.html）, the usage is also relatively simple. This script is mainly used for review and reference.
 
 ### Methylation analysis  
