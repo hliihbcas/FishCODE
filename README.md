@@ -76,8 +76,10 @@ Note: Considering that SNP annotations need to be built in advance, and that SNP
 $ Rscript ./methylkit.R SRR17851372,SRR17851373 SRR17851372,SRR17851373 3 1000 1000 0.01 25 all ./data/example_meth/result_1.txt 1,0 10 ./data/example_meth no 0.2 0.01 PRJNA802599,PRJNA802599  
 Note: Differential methylation analysis.  
 
-$ ./find_genes_by_loc.py --gene-file=./Cyprinus_carpio.txt --gene-name=Gene --gene-chr=Chr --gene-start=Start --gene-end=End --loc-chr=chr --loc-start=start --loc-end=stop -i ./data/example_meth/result_1.txt -o ./data/example_meth/SRR17851372,SRR17851373.meth.gene.CG.txt  
+$ python2 ./find_genes_by_loc.py --gene-file=./Cyprinus_carpio.txt --gene-name=Gene --gene-chr=Chr --gene-start=Start --gene-end=End --loc-chr=chr --loc-start=start --loc-end=stop -i ./data/example_meth/result_1.txt -o ./data/example_meth/SRR17851372,SRR17851373.meth.gene.CG.txt  
 Note: Annotation of genes directly associated with differentially methylated regions.  
+Note that you need to use python 2.75 here, not python3.  
 
-$ ./find_genes_nearby_loc.py --gene-file=./Cyprinus_carpio.txt --gene-name=Gene --gene-chr=Chr --gene-start=Start --gene-end=End --loc-chr=chr --loc-start=start --loc-end=stop  --adjacent=2000 -i ./data/example_meth/SRR17851372,SRR17851373.meth.gene.CG.txt -o ./data/example_meth/SRR17851372,SRR17851373.meth.2000.CG.txt  
+$ python3 ./find_genes_nearby_loc.py --gene-file=./Cyprinus_carpio.txt --gene-name=Gene --gene-chr=Chr --gene-start=Start --gene-end=End --loc-chr=chr --loc-start=start --loc-end=stop  --adjacent=2000 -i ./data/example_meth/SRR17851372,SRR17851373.meth.gene.CG.txt -o ./data/example_meth/SRR17851372,SRR17851373.meth.2000.CG.txt  
 Note：Annotation of (~2000bp) genes indirectly associated with differentially methylated regions.  
+Note that you need to use python 2.75 here, not python3.  
