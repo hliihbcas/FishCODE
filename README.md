@@ -55,22 +55,25 @@ please refer to https://github.com/hliihbcas/FishSNP
 please refer FishCODE.yaml.  
 2.If conda works under your Linux environment, you canimport the corresponding environment.  
 $ create -f FishCODE.yaml via conda env create -f  
+3. Enter the corresponding directory and grant execute permission  
+$ cd R_analysis_visualization  
+$ chmod 755 ./*R  
 
 ### Transcriptome analysis
-$ Rversion1.R de_analyse_batch 11 ./data/example_trans/*.data 0 ./data/example_trans/feature > ./data/example_trans/err.txt 2>&1  
+$ ./Rversion1.R de_analyse_batch 11 ./data/example_trans/*.data 0 ./data/example_trans/feature > ./data/example_trans/err.txt 2>&1  
 
 ### Time-series transcriptome analysis
-$ Rversion1.R de_analyse_batch_time 11 ./data/example_time/*.data 0 ./data/example_time/feature > ./data/example_time/err.txt 2>&1  
+$ ./Rversion1.R de_analyse_batch_time 11 ./data/example_time/*.data 0 ./data/example_time/feature > ./data/example_time/err.txt 2>&1  
 
 ### Evolutionary tree construction  
-$ evolution_tree.R ./data/example_evo/common_aln.phy
+$ Rscript ./evolution_tree.R ./data/example_evo/common_aln.phy
 
 ### SNP annotation  
 $ ./run_snp2.py -sh ./snpEff_pip1_1.sh -f ./data/example_snp/common.data -i new_grasscarp -c --address xxxxxxxxx@xxx.com -w ./data/example_snp -o ./data/example_snp/out  
 Note: Considering that SNP annotations need to be built in advance, and that SNP annotations mainly rely on SNPEff software (https://pcingola.github.io/SnpEff), the usage is also relatively simple. This script is mainly used for review and reference.
 
 ### Methylation analysis  
-$ ./methylkit.R SRR17851372,SRR17851373 SRR17851372,SRR17851373 3 1000 1000 0.01 25 all ./data/example_meth/result_1.txt 1,0 10 ./data/example_meth no 0.2 0.01 PRJNA802599,PRJNA802599  
+$ Rscript ./methylkit.R SRR17851372,SRR17851373 SRR17851372,SRR17851373 3 1000 1000 0.01 25 all ./data/example_meth/result_1.txt 1,0 10 ./data/example_meth no 0.2 0.01 PRJNA802599,PRJNA802599  
 Note: Differential methylation analysis.  
 
 $ ./find_genes_by_loc.py --gene-file=./Cyprinus_carpio.txt --gene-name=Gene --gene-chr=Chr --gene-start=Start --gene-end=End --loc-chr=chr --loc-start=start --loc-end=stop -i ./data/example_meth/result_1.txt -o ./data/example_meth/SRR17851372,SRR17851373.meth.gene.CG.txt  
